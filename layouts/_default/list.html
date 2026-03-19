@@ -1,0 +1,48 @@
+{{ define "main" }}
+<main class="viewport-window">
+  <div class="title-bar">
+    <div class="title-bar-text">{{ .Title }}</div>
+    <div class="window-controls">
+      <button
+        type="button"
+        class="window-button"
+        data-action="minimize"
+        aria-label="Minimize window"
+      >
+        MIN
+      </button>
+      <button
+        type="button"
+        class="window-button"
+        data-action="maximize"
+        aria-label="Maximize window"
+      >
+        MAX
+      </button>
+      <button
+        type="button"
+        class="window-button close"
+        data-action="close"
+        aria-label="Close window"
+      >
+        CLOSE
+      </button>
+    </div>
+  </div>
+
+  <div class="window-body">
+    {{ with .Content }}
+    <div class="cyber-text">{{ . }}</div>
+    {{ end }}
+
+    <ul class="post-list">
+      {{ range .RegularPages.ByDate.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span> - {{ .Date.Format "2006-01-02" }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</main>
+{{ end }}

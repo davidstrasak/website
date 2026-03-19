@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="os-container">
+        <div class="desktop">
+            <nav class="sidebar">
+                
+                <a href="../projects/post/" class="icon">
+                    <div class="icon-visual">
+                        
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        
+                    </div>
+                    <div class="icon-label">Project!</div>
+                </a>
+                
+                <a href="../blog/post/" class="icon">
+                    <div class="icon-visual">
+                        
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        
+                    </div>
+                    <div class="icon-label">First Post</div>
+                </a>
+                
+                <a href="../projects/secondpost/" class="icon">
+                    <div class="icon-visual">
+                        
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        
+                    </div>
+                    <div class="icon-label">Project!</div>
+                </a>
+                
+            </nav>
+
+            
+<h1>Categories</h1>
+<ul class="post-list">
+  
+</ul>
+
+        </div>
+
+        <footer class="taskbar">
+            <div class="start-button">SYS</div>
+            
+            <div class="task-tab">Categories</div>
+            
+            <div class="clock" id="clock">00:00:00</div>
+        </footer>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.getHours().toString().padStart(2, '0') + ':' +
+                         now.getMinutes().toString().padStart(2, '0') + ':' +
+                         now.getSeconds().toString().padStart(2, '0');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
+
+### Implementation Notes:
+1.  **Directory Structure**: Ensure layout files are placed in `layouts/_default/` and home page logic in `layouts/index.html`.
+2.  **Centralization**: Style definitions and global scripts are contained within `baseof.html`.
+3.  **Content Management**: Adding a Markdown file to `/content/` automatically generates a desktop icon and corresponding window view.
+4.  **Navigation**: The site operates via standard HTTP links, causing a browser refresh that re-renders the OS overlay with new content inside the window frame.
+
+Hugo layout files and content examples generated.

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Website</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="os-container">
+        <div class="desktop">
+            <nav class="sidebar">
+                <a href="../" class="icon">
+                    <div class="icon-visual">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 11.5L12 4l9 7.5"></path>
+                            <path d="M5 10.5V20h14v-9.5"></path>
+                            <path d="M10 20v-5h4v5"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Home</div>
+                </a>
+
+                
+                <a href="../blog/" class="icon">
+                    <div class="icon-visual">
+                        
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        
+                    </div>
+                    <div class="icon-label">Blogs</div>
+                </a>
+                
+                <a href="../projects/" class="icon">
+                    <div class="icon-visual">
+                        
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        
+                    </div>
+                    <div class="icon-label">Projects</div>
+                </a>
+                
+            </nav>
+
+            
+<main class="viewport-window">
+  <div class="title-bar">
+    <div class="title-bar-text">Projects</div>
+    <div class="window-controls">
+      <button
+        type="button"
+        class="window-button"
+        data-action="minimize"
+        aria-label="Minimize window"
+      >
+        MIN
+      </button>
+      <button
+        type="button"
+        class="window-button"
+        data-action="maximize"
+        aria-label="Maximize window"
+      >
+        MAX
+      </button>
+      <button
+        type="button"
+        class="window-button close"
+        data-action="close"
+        aria-label="Close window"
+      >
+        CLOSE
+      </button>
+    </div>
+  </div>
+
+  <div class="window-body">
+    
+
+    <div class="projects-grid">
+      
+      <a href="../projects/post/" class="project-card">
+        
+        <div class="project-info">
+          <h3>Project!</h3>
+          <p class="project-date">2026-03-19</p>
+          
+        </div>
+      </a>
+      
+      <a href="../projects/secondpost/" class="project-card">
+        
+        <div class="project-info">
+          <h3>Project!</h3>
+          <p class="project-date">2026-03-18</p>
+          
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</main>
+
+        </div>
+
+        <footer class="taskbar">
+            <div class="start-button">SYS</div>
+            
+            <div class="task-tab">Projects</div>
+            
+            <div class="clock" id="clock">00:00:00</div>
+        </footer>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.getHours().toString().padStart(2, '0') + ':' +
+                         now.getMinutes().toString().padStart(2, '0') + ':' +
+                         now.getSeconds().toString().padStart(2, '0');
+        }
+
+        function initWindowControls() {
+            const windowEl = document.querySelector('.viewport-window');
+            if (!windowEl) return;
+
+            const buttons = windowEl.querySelectorAll('.window-button[data-action]');
+            const homeUrl = '\/';
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const action = button.getAttribute('data-action');
+
+                    if (action === 'minimize') {
+                        windowEl.classList.toggle('is-minimized');
+                        windowEl.classList.remove('is-maximized');
+                        return;
+                    }
+
+                    if (action === 'maximize') {
+                        windowEl.classList.toggle('is-maximized');
+                        windowEl.classList.remove('is-minimized');
+                        return;
+                    }
+
+                    if (action === 'close') {
+                        window.location.href = homeUrl;
+                    }
+                });
+            });
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        initWindowControls();
+    </script>
+</body>
+</html>

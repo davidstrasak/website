@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+    <div class="os-container">
+        <div class="desktop">
+            <nav class="sidebar">
+                <a href="{{ .Site.Home.RelPermalink }}" class="icon">
+                    <div class="icon-visual">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 11.5L12 4l9 7.5"></path>
+                            <path d="M5 10.5V20h14v-9.5"></path>
+                            <path d="M10 20v-5h4v5"></path>
+                        </svg>
+                    </div>
+                    <div class="icon-label">Home</div>
+                </a>
+
+                {{ range .Site.Sections.ByTitle }}
+                <a href="{{ .RelPermalink }}" class="icon">
+                    <div class="icon-visual">
+                        {{ if .Params.icon_svg }}
+                            {{ .Params.icon_svg | safeHTML }}
+                        {{ else }}
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                        {{ end }}
+                    </div>
+                    <div class="icon-label">{{ .Title }}</div>
+                </a>
+                {{ end }}
+            </nav>
+
+            {{ block "main" . }}{{ end }}
+        </div>
+
+        <footer class="taskbar">
+            <div class="start-button">SYS</div>
+            {{ if not .IsHome }}
+            <div class="task-tab">{{ .Title }}</div>
+            {{ end }}
+            <div class="clock" id="clock">00:00:00</div>
+        </footer>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.getHours().toString().padStart(2, '0') + ':' +
+                         now.getMinutes().toString().padStart(2, '0') + ':' +
+                         now.getSeconds().toString().padStart(2, '0');
+        }
+
+        function initWindowControls() {
+            const windowEl = document.querySelector('.viewport-window');
+            if (!windowEl) return;
+
+            const buttons = windowEl.querySelectorAll('.window-button[data-action]');
+            const homeUrl = '{{ .Site.Home.RelPermalink }}';
+
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const action = button.getAttribute('data-action');
+
+                    if (action === 'minimize') {
+                        windowEl.classList.toggle('is-minimized');
+                        windowEl.classList.remove('is-maximized');
+                        return;
+                    }
+
+                    if (action === 'maximize') {
+                        windowEl.classList.toggle('is-maximized');
+                        windowEl.classList.remove('is-minimized');
+                        return;
+                    }
+
+                    if (action === 'close') {
+                        window.location.href = homeUrl;
+                    }
+                });
+            });
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+        initWindowControls();
+    </script>
+</body>
+</html>
