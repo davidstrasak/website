@@ -12,4 +12,4 @@ fi
 
 hugo
 async-neocities --cleanup
-async-neocities
+async-neocities --supporter
