@@ -1,6 +1,8 @@
 :root {
   --neon-cyan: #00f3ff;
   --neon-pink: #ff003c;
+  --neon-link: #5cf8ff;
+  --neon-link-hover: #ff4d78;
   --bg-black: #050505;
   --glass-bg: rgba(0, 20, 30, 0.9);
   --border-glow: 0 0 10px var(--neon-cyan);
@@ -31,6 +33,24 @@ html {
   color: var(--neon-cyan);
   overflow: hidden;
   text-transform: uppercase;
+}
+
+a,
+a:visited {
+  color: var(--neon-link);
+  text-decoration-color: rgba(92, 248, 255, 0.55);
+  text-underline-offset: 2px;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--neon-link-hover);
+  text-decoration-color: rgba(255, 77, 120, 0.7);
+  text-shadow: 0 0 8px rgba(255, 77, 120, 0.45);
 }
 
 body::before {
