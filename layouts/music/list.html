@@ -30,13 +30,19 @@ $fragments = . }} {{ end }} {{ end }}
     {{ end }}
 
     <section class="music-list-section" aria-labelledby="music-list-title">
-      <h2 id="music-list-title">More Music</h2>
+      <h2 id="music-list-title">My Music & Covers</h2>
 
       <ul class="music-entry-list">
         {{ range $musicEntries.ByDate.Reverse }}
         <li>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <span>{{ .Date.Format "2006-01-02" }}</span>
+          <span>
+            {{ if in .Params.tags "original" }}
+            <span class="music-tag">[ORIGINAL]</span>
+            {{ else if in .Params.tags "cover" }}
+            <span class="music-tag">[COVER]</span>
+            {{ end }} {{ .Date.Format "2006-01-02" }}
+          </span>
         </li>
         {{ else }}
         <li class="music-entry-empty">More tracks coming online soon.</li>
