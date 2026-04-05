@@ -237,7 +237,7 @@
 </main>
 
 <style>
-  /* Enforce image constraints locally to bypass potential browser caching */
+  /* Enforce constraints locally to bypass potential browser caching */
   .content-body img {
     max-width: 100% !important;
     height: auto !important;
@@ -246,6 +246,14 @@
     display: block;
     margin: 30px auto;
     object-fit: contain;
+  }
+
+  .content-body mark {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: var(--neon-pink) !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 8px rgba(255, 0, 60, 0.6) !important;
   }
 </style>
 
