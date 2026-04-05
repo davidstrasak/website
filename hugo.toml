@@ -12,3 +12,5 @@ canonifyURLs = false
       block = true
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      mark = true

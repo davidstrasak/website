@@ -5,26 +5,149 @@
     {{ partial "window-controls" . }}
   </div>
 
-  <article class="window-body">
-    <div
-      class="cyber-text"
-      style="
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 15px;
-      "
-    >
-      <time style="white-space: nowrap">{{ .Date.Format "2006-01-02" }}</time>
-      {{ if .Params.tags }}
-      <div class="review-tags" style="margin-top: 0">
-        {{ range .Params.tags }}
-        <span class="review-tag">{{ . }}</span>
+  <article class="window-body" style="padding: 30px">
+    <div style="max-width: 900px; margin: 0 auto">
+      {{ $cover := .Resources.GetMatch "cover.*" }}
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          margin-bottom: 40px;
+          align-items: flex-start;
+        "
+      >
+        <div
+          style="
+            flex: 1 1 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+          "
+        >
+          <h1
+            style="
+              margin: 0;
+              color: var(--neon-cyan);
+              font-size: 2.5rem;
+              text-shadow: var(--border-glow);
+            "
+          >
+            {{ .Title }}
+          </h1>
+
+          <div
+            style="
+              color: var(--neon-pink);
+              font-size: 0.9rem;
+              font-family: monospace;
+              border-bottom: 1px dashed rgba(255, 0, 60, 0.3);
+              padding-bottom: 8px;
+              width: fit-content;
+            "
+          >
+            [ SYS.DATE: <time>{{ .Date.Format "2006.01.02" }}</time> ] | STATUS:
+            LOGGED
+          </div>
+
+          {{ if .Params.tags }}
+          <div
+            class="review-tags"
+            style="display: flex; gap: 8px; flex-wrap: wrap"
+          >
+            {{ range .Params.tags }}
+            <span class="review-tag">#{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+
+        {{ if $cover }}
+        <div
+          style="
+            flex: 0 0 250px;
+            border: 1px solid var(--neon-cyan);
+            padding: 5px;
+            background: #000;
+          "
+        >
+          <img
+            src="{{ $cover.RelPermalink }}"
+            alt="{{ .Title }}"
+            style="
+              width: 100%;
+              aspect-ratio: 1;
+              object-fit: cover;
+              display: block;
+              filter: contrast(1.1) grayscale(30%);
+            "
+          />
+        </div>
         {{ end }}
       </div>
-      {{ end }}
+
+      <div
+        class="content-body"
+        style="
+          text-transform: none;
+          color: #d0d0d0;
+          font-size: 1.15rem;
+          line-height: 1.8;
+          letter-spacing: 0.3px;
+        "
+      >
+        {{ .Content | replaceRE "==\\s*([^=]+?)\\s*==" "<mark>$1</mark>" |
+        safeHTML }}
+      </div>
+
+      <div
+        style="
+          margin-top: 50px;
+          border-top: 1px dashed rgba(0, 243, 255, 0.3);
+          padding-top: 30px;
+          display: flex;
+          justify-content: flex-start;
+        "
+      >
+        {{ if eq .Section "blog" }}
+        <a
+          href="/blog/"
+          class="review-tag"
+          style="
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            display: inline-block;
+          "
+          >&lt; BACK TO BLOGS</a
+        >
+        {{ else if eq .Section "book" }}
+        <a
+          href="/book/"
+          class="review-tag"
+          style="
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            display: inline-block;
+          "
+          >&lt; BACK TO BOOKS</a
+        >
+        {{ else }}
+        <a
+          href="/{{ .Section }}/"
+          class="review-tag"
+          style="
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 20px;
+            display: inline-block;
+          "
+          >&lt; GO BACK</a
+        >
+        {{ end }}
+      </div>
     </div>
-    <div class="content-body">{{ .Content }}</div>
   </article>
 </main>
 
@@ -35,7 +158,6 @@
     .forEach((img) => {
       const link = img.parentElement;
       if (link.tagName === "A") {
-        // Copy the link's inline style to the image
         if (link.getAttribute("style")) {
           const existingStyle = img.getAttribute("style") || "";
           img.setAttribute(

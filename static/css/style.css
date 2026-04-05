@@ -770,6 +770,12 @@ body::before {
 
 /* Book Review Content Styling */
 .content-body {
+  text-transform: none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 1.1rem;
+  color: #ccc;
   line-height: 1.6;
 }
 
@@ -866,4 +872,54 @@ body::before {
   border-color: rgba(255, 0, 60, 0.5);
   color: var(--neon-pink);
   cursor: default;
+}
+
+/* Highlight mark tag with neon pink color */
+mark {
+  background: none;
+  color: var(--neon-pink);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 0, 60, 0.5);
+}
+
+.content-body h1,
+.content-body h2,
+.content-body h3,
+.content-body h4,
+.content-body h5,
+.content-body h6 {
+  text-transform: uppercase;
+  color: var(--neon-link);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Code formatting */
+.content-body pre {
+  background: #0a0a0c;
+  border: 1px solid var(--neon-cyan);
+  padding: 1.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+  margin: 1.5rem 0;
+}
+
+.content-body pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+}
+
+.content-body code {
+  background: rgba(0, 243, 255, 0.15);
+  color: var(--neon-cyan);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
 }
