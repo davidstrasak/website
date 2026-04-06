@@ -1,0 +1,22 @@
+---
+title: "Mans Search for Meaning"
+date: "2026-04-06T21:39:14+02:00"
+cover_image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535419394l/4069._SY475_.jpg"
+tags: ["Self-help", "Motivation", "Psychology", "Philosophy"]
+---
+
+<a href="https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning" style="float: left; padding-right: 20px"><img border="0" alt="Man's Search for Meaning" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535419394l/4069._SY475_.jpg" /></a><a href="https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning">Man's Search for Meaning</a> by <a href="https://www.goodreads.com/author/show/2782.Viktor_E_Frankl">Viktor E. Frankl</a><br/>
+My rating: <a href="https://www.goodreads.com/review/show/8497913762">5 of 5 stars</a><br /><br />
+I am in a sort of Existential Crisis right now. I found out about this book because I figured I need some purpose in life, and this was often recommended as a great start. The recommendations were correct—this book and the theory of logotherapy (psychological analysis whose goal is to find purpose in life) contain amazing ideas. These are delivered in the first part through the eyes of a concentration camp survivor, while the second part showcases the basics and core statements of the theory.<br /><br /><b>Commentary on the survivor story</b><br />I find it really interesting how Frankl's finished manuscript on the theory of logotherapy was taken from him upon entering Auschwitz. Since he could not release the book, finishing it became Frankl's main motivation—his purpose in life—to survive the environment and complete his work.<br /><br />The book is actually more motivating than horrifying for me. The camps were terrible, but people found ways to survive. The most important factor in those circumstances was how people viewed their suffering and their future.<br /><br />Frankl says everyone has the freedom to choose to: 1) live an active life (creating art or things), 2) live a passive life (consuming art or nature), or 3) suffer and choose how they react to this suffering. <br /><br />If the first two options are taken away, suffering is all you have left—whether you like it or not. But no one can take this away from you: the choice of how you will react to your suffering is yours to make. <i>
+<b>"The one last freedom a human has is the freedom to choose how they will act about their situation."</b>
+</i><br /><br />Another major thought from this part of the book is that <i>
+<b>"Freedom is only a part of the human privilege. The other part is responsibility."</b>
+</i> This was explained through stories of people who left the concentration camps after years of torture. They had freedom, but they still had to reinvent their sense of responsibility, relearning that just because someone did great harm to them, it does not mean they can now harm others.<br /><br /><b>Commentary on the section of logotherapy</b><br />This section was more technical with terms from psychology which were harder to understand than the narrative stories, but it was still worth the read. Here are some interesting sentences and quotes from this part:<br /><br /><b>
+<i>"People have enough to live by, but nothing to live for"</i>
+</b> <br />- Commentary on why purpose is needed in this day and age.<br /><br /><b>
+<i>"Live as if you were living for the second time and had acted in the wrong way as you are about to act now."</i>
+</b><br /><br /><b>
+<i>"When the meaning is gone, pleasure takes over."</i>
+</b><br />- This refers to the people in the camps who gave up. They would wake up one morning and refuse to work; no amount of lashing made them stand. Eventually, they stood up, took a cigarette from a deep pocket, and lit it.<br /><br /><b>Summary</b><br />This book was an incredible journey with something for everyone. I enjoyed it a lot and am glad I challenged myself to read it this weekend (since the book is only about 200 pages long).<br /><br />If you feel down and want to be glad to live at such a good point in time, read the part about the concentration camp.<br /><br />If you want to remind yourself about the principles of logotherapy (which can help you with orienting your life the correct way), read the second part of the book.
+<br/><br/>
+<a href="https://www.goodreads.com/review/list/163394279-david-stra-k">View all my reviews</a>
