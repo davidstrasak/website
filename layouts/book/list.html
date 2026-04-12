@@ -11,11 +11,20 @@
     {{ end }}
 
     <div class="books-grid">
-      {{ range .RegularPages.ByDate.Reverse }}
-      <a href="{{ .RelPermalink }}" class="book-card">
+      {{ range .RegularPages.ByDate.Reverse }} {{ $isUnfinished := false }} {{
+      if isset .Params "finish" }} {{ if eq .Params.finish false }} {{
+      $isUnfinished = true }} {{ end }} {{ else if in .Params.tags
+      "finish:false" }} {{ $isUnfinished = true }} {{ end }}
+      <a
+        href="{{ .RelPermalink }}"
+        class="book-card{{ if $isUnfinished }} unfinished-book{{ end }}"
+      >
         {{ if .Params.cover_image }}
         <div class="book-cover">
           <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
+          {{ if $isUnfinished }}
+          <div class="dnf-badge">DID NOT FINISH</div>
+          {{ end }}
           <div class="book-overlay">
             <div class="overlay-content">
               <h3>{{ .Title }}</h3>

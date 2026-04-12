@@ -1,4 +1,6 @@
-{{ define "main" }}
+{{ define "main" }} {{ $isUnfinished := false }} {{ if isset .Params "finish" }}
+{{ if eq .Params.finish false }} {{ $isUnfinished = true }} {{ end }} {{ else if
+in .Params.tags "finish:false" }} {{ $isUnfinished = true }} {{ end }}
 <main class="viewport-window">
   <div class="title-bar">
     <div class="title-bar-text">{{ .Title }}</div>
@@ -49,8 +51,11 @@
             [ SYS.DATE: <time>{{ .Date.Format "2006.01.02" }}</time> ] | STATUS:
             {{ if .Draft }}NOT LOGGED{{ else }}LOGGED{{ end }}
           </div>
-
-          {{ if .Params.tags }}
+          {{ if $isUnfinished }}
+          <div>
+            <span class="dnf-text-single">WARNING: DID NOT FINISH</span>
+          </div>
+          {{ end }} {{ if .Params.tags }}
           <div
             class="review-tags"
             style="display: flex; gap: 8px; flex-wrap: wrap"
@@ -164,6 +169,7 @@
             border: 1px solid var(--neon-cyan);
             padding: 5px;
             background: #000;
+            position: relative;
           "
         >
           <img
@@ -174,9 +180,22 @@
               aspect-ratio: 1;
               object-fit: cover;
               display: block;
-              filter: contrast(1.1) grayscale(30%);
+              filter: contrast(1.1) grayscale({{ if $isUnfinished }}100%{{ else }}30%{{ end }});
+              {{ if $isUnfinished }}opacity: 0.5;{{ end }}
             "
           />
+          {{ if $isUnfinished }}
+          <div
+            class="dnf-badge"
+            style="
+              font-size: 1.25rem;
+              padding: 10px 20px;
+              transform: translate(-50%, -50%);
+            "
+          >
+            DID NOT FINISH
+          </div>
+          {{ end }}
         </div>
         {{ end }}
       </div>

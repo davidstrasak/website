@@ -931,3 +931,49 @@ mark {
   margin: 15px auto;
   display: block;
 }
+
+/* DID NOT FINISH BOOK STYLING */
+.unfinished-book .book-cover img {
+  opacity: 0.4;
+  filter: grayscale(100%) contrast(1.2);
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.unfinished-book:hover .book-cover img {
+  opacity: 0.7;
+  filter: grayscale(80%) contrast(1.1);
+}
+
+.dnf-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  background-color: var(--neon-cyan);
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 5px 12px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+  z-index: 10;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.dnf-text-single {
+  display: inline-block;
+  background-color: var(--neon-cyan);
+  color: black;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+  font-family: monospace;
+  font-size: 0.9rem;
+}

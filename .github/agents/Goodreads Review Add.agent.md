@@ -29,9 +29,10 @@ For every book review provided:
 3. **Format the HTML Body:**
    - Keep the original HTML snippet as the body of the markdown file.
    - Ensure the image URLs inside the HTML body are ALSO upscaled to `_SY475_` (both `href` and `src` if applicable).
-4. **Determine Tags:**
+4. **Determine Tags & Status:**
    - DO NOT include generic tags like `"book"` or `"review"`.
    - Infer genre tags based on the title, author, or review text (e.g., add `"warhammer 40k"`, `"sci-fi"` for Warhammer; `"cyberpunk"`, `"shadowrun"` for Shadowrun; `"horror"` for Lovecraft/Stephen King; `"rpg"`, `"fantasy"`, etc.).
+   - If the user specifies that they did not finish the book (or uses "DNF"), ensure that the property `finish: false` is added to the frontmatter.
 5. **Construct the File:**
    - Create a filename from the title: convert to lowercase, remove all special characters, replace spaces/dashes with underscores. Make sure it ends in `.md`.
    - The file MUST follow this exact format:
@@ -42,6 +43,7 @@ For every book review provided:
      author: "{AUTHOR}"
      cover_image: "{UPSCALED_URL}"
      tags: { TAGS_ARRAY }
+     finish: false # Include this field ONLY if the book was not finished
      ---
      { HTML_BODY }
      ```
