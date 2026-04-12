@@ -1,5 +1,5 @@
 ---
-title: "PICvariety"
+title: "Various projects on the PIC"
 date: 2024-09-05
 tags: ["PIC", "Microcontroller"]
 links:
